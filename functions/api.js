@@ -1,18 +1,19 @@
 require("dotenv").config();
 
 const express = require("express");
-const app = express();
-
+const serverless = require("serverless-http");
 const { initializeApp } = require("firebase/app");
 
-const bodyParser = require("body-parser");
-const cookieParser = require("cookie-parser");
-const cors = require("cors");
+const app = express();
 
 /// My Routes
 const authRoutes = require("./routes/auth");
 const projectRoutes = require("./routes/project");
 const certificateRoutes = require("./routes/certificate");
+
+const bodyParser = require("body-parser");
+const cookieParser = require("cookie-parser");
+const cors = require("cors");
 
 const firebaseConfig = {
   apiKey: process.env.FIREBASE_API_KEY,
@@ -33,14 +34,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors());
 
-/// My Routes
+// My Routes
 app.use("/api", authRoutes);
 app.use("/api", projectRoutes);
 app.use("/api", certificateRoutes);
 
-
-const PORT = process.env.PORT || 8000;
-
-app.listen(PORT, () => {
-  console.log(`Server is listening on port ${PORT}`);
-});
+module.exports.handler = serverless(app);

@@ -16,7 +16,10 @@
     "express": "^4.17.1",
     "express-validator": "^6.13.0",
     "firebase": "^9.4.1",
-    "nodemon": "^2.0.15"
+    "netlify-cli": "^7.0.2",
+    "netlify-lambda": "^2.0.15",
+    "nodemon": "^2.0.15",
+    "serverless-http": "^2.7.0"
   },
   "engines": {
     "node": "14.18.0"
