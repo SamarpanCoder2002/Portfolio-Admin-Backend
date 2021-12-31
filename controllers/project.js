@@ -9,6 +9,19 @@ const {
 
 const ProjectModel = require("../models/project");
 
+exports.getAllProjectCategory = (req, res) => {
+  const db = getFirestore();
+
+  getDocs(collection(db, "projects")).then((querySnapshot) => {
+    const projectCategory = ["Show All"];
+    querySnapshot.forEach((doc) => {
+     projectCategory.push(doc.id);
+    });
+
+    res.status(200).json(projectCategory);
+  });
+};
+
 exports.addProject = (req, res) => {
   const projectModel = new ProjectModel(req.body.project);
 

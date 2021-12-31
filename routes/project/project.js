@@ -1,14 +1,16 @@
 const express = require("express");
-const { isSignedIn } = require("../controllers/auth");
+const { isSignedIn } = require("../../controllers/auth");
 const {
   addProject,
   getAllProject,
   getProjectsByDomain,
   updateProject,
   deleteProject,
-} = require("../controllers/project");
+  getAllProjectCategory,
+} = require("../../controllers/project");
 const router = express.Router();
 
+router.get("/project/getAllProjectCategory", getAllProjectCategory)
 router.post("/project/add", isSignedIn, addProject);
 router.get("/project/getall", getAllProject);
 router.get("/project/getparticulardomain/:domainName", getProjectsByDomain);
