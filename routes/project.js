@@ -1,5 +1,5 @@
 const express = require("express");
-const { isSignedIn } = require("../../controllers/auth");
+const { isSignedIn } = require("../controllers/auth");
 const {
   addProject,
   getAllProject,
@@ -7,7 +7,7 @@ const {
   updateProject,
   deleteProject,
   getAllProjectCategory,
-} = require("../../controllers/project");
+} = require("../controllers/project");
 const router = express.Router();
 
 router.get("/project/getAllProjectCategory", getAllProjectCategory)

@@ -11,7 +11,7 @@ const cors = require("cors");
 
 /// My Routes
 const authRoutes = require("./routes/auth");
-const projectRoutes = require("./routes/project/project");
+const projectRoutes = require("./routes/project");
 const certificateRoutes = require("./routes/certificate");
 
 const firebaseConfig = {
