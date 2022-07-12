@@ -9,6 +9,7 @@ class ProjectModel {
     projectTechUsed,
     projectType,
     projectGithubLink,
+    projectAvailableOnPlayStore
   }) {
     this.name = projectName;
     this.description = projectDescription;
@@ -19,6 +20,7 @@ class ProjectModel {
     this.projectTechUsed = projectTechUsed;
     this.projectType = projectType;
     this.projectGithubLink = projectGithubLink;
+    this.projectAvailableOnPlayStore = projectAvailableOnPlayStore;
   }
 
   toJSON = () => {
@@ -33,6 +35,7 @@ class ProjectModel {
       projectType: this.projectType,
       projectGithubLink: this.projectGithubLink,
       projectId: Date.now(),
+      projectAvailableOnPlayStore: this.projectAvailableOnPlayStore,
     };
   };
 }

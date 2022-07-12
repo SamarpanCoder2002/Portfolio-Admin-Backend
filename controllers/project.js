@@ -111,6 +111,7 @@ exports.updateProject = (req, res) => {
     projectDownloadLink,
     projectTechUsed,
     projectGithubLink,
+    projectAvailableOnPlayStore
   } = req.body.project;
 
   getDoc(doc(db, "projects", projectType)).then((docFile) => {
@@ -129,6 +130,7 @@ exports.updateProject = (req, res) => {
           projectTechUsed,
           projectType,
           projectGithubLink,
+          projectAvailableOnPlayStore
         };
 
         const updatedProject = {};
